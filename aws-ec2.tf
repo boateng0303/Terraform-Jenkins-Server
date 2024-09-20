@@ -57,6 +57,7 @@ resource "aws_security_group" "jenkins_ec2_security_group" {
 # launch the ec2 instance and install jenkis
 resource "aws_instance" "ec2_instance" {
   ami                    = data.aws_ami.amazon_linux_2.id
+  # ami                    = data.aws_ami.my_custom_ami.id
   instance_type          = var.aws_instance_type
   subnet_id              = aws_default_subnet.default_az1.id
   vpc_security_group_ids = [aws_security_group.jenkins_ec2_security_group.id]
